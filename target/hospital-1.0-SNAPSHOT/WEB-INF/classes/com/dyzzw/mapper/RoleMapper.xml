@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyzzw.mapper.RoleMapper">
+	<resultMap id="BaseResultMap" type="com.dyzzw.pojo.Role">
+		<id column="rid" jdbcType="INTEGER" property="rid" />
+		<result column="identity" jdbcType="VARCHAR" property="identity" />
+	</resultMap>
+	<!-- 根据用户ID查询用户角色 -->
+	<select id="queryRolesByUserId"  resultMap="BaseResultMap" parameterType="Integer">
+		select t1.* from role t1 inner join user_role t2
+		on(t1.rid=t2.rid) where t2.dCid=#{dCid}
+	</select>
+</mapper>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyzzw.mapper.DoctorMapper">
+    <resultMap id="resultMapDoctor" type="com.dyzzw.pojo.Doctor">
+        <id column="dCid" property="dCid"/>
+        <result column="name" property="name"/>
+        <result column="email" property="email"/>
+        <result column="pwd" property="pwd"/>
+        <result column="gender" property="gender"/>
+        <result column="hId" property="hId"></result>
+        <result column="score" property="score"/>
+        <result column="grade" property="grade"/>
+        <result column="rid" property="rid"></result>
+        <result column="did" property="did"></result>
+        <result column="dTid" property="dTid"></result>
+        <result column="skill" property="skill"/>
+        <result column="description" property="description"/>
+        <result column="surgeryWeek" property="surgeryweek"/>
+        <association property="deptlist" javaType="Deptlist">
+            <id property="did" column="did"></id>
+            <result column="dname" property="dname"></result>
+        </association>
+        <association property="deptlistT" javaType="DeptlistT">
+            <id property="dTid" column="dTid"></id>
+            <result property="dTname" column="dTname"></result>
+        </association>
+        <association property="hospital" javaType="hospital">
+            <id property="hId" column="hId"></id>
+            <result property="hName" column="hName"></result>
+            <result property="hLevel" column="hLevel"></result>
+            <result property="hPhone" column="hPhone"></result>
+            <result property="hAddress" column="hAddress"></result>
+            <result property="hInformation" column="hInformation"></result>
+            <result property="arId" column="arId"></result>
+        </association>
+    </resultMap>
+
+    <!--医生分页查询-->
+    <select id="selectToPage" parameterType="com.dyzzw.dto.DoctorPage" resultMap="resultMapDoctor">
+        select * from doctor d JOIN hospital_message h on d.hId = h.hId join deptlist de on de.did = d.did
+        join deptlistt dt on d.dTid = dt.dTid
+        <where>
+            <if test="did != null ">
+                d.did = #{did}
+            </if>
+            <if test="grade != null ">
+                and d.grade = #{grade}
+            </if>
+            <if test="hId != null ">
+                and h.hId = #{hId}
+            </if>
+            <if test="dTid !=null ">
+                and d.dTid = #{dTid}
+            </if>
+            <if test="key != null and key != '' ">
+                and d.`name` LIKE '%${key}%' OR hName LIKE '%${key}%' OR dname LIKE '%${key}%' OR skill LIKE '%${key}%'
+            </if>
+        </where>
+        limit #{pageNum},#{pageSize};
+    </select>
+    <!--查询医生总数-->
+    <select id="selectToPageTotalCount" parameterType="com.dyzzw.dto.DoctorPage" resultType="Integer">
+        select count(*) from doctor d JOIN hospital_message h on d.hId = h.hId join deptlist de on de.did = d.did
+        join deptlistt dt on d.dTid = dt.dTid
+        <where>
+            <if test="did != null ">
+                d.did = #{did}
+            </if>
+            <if test="grade != null ">
+                and d.grade = #{grade}
+            </if>
+            <if test="hId != null ">
+                and h.hId = #{hId}
+            </if>
+            <if test="dTid != null ">
+                and d.dTid = #{dTid}
+            </if>
+            <if test="key != null and key != '' ">
+                and d.`name` LIKE '%${key}%' OR hName LIKE '%${key}%' OR dname LIKE '%${key}%' OR skill LIKE '%${key}%'
+            </if>
+
+        </where>
+
+    </select>
+    <!--查询全部-->
+    <select id="checkDoc" resultType="com.dyzzw.pojo.Doctor" resultMap="resultMapDoctor">
+        select * from doctor d JOIN  hospital_message h on d.hId = h.hId join deptlist de on de.did = d.did
+        join deptlistt dt on d.dTid = dt.dTid
+        order by d.score limit 0,3;
+    </select>
+    <!--根据ID查询医生-->
+    <select id="getDoctorById" parameterType="Integer" resultMap="resultMapDoctor" resultType="com.dyzzw.pojo.Doctor">
+        select * from doctor d JOIN  hospital_message h on d.hId = h.hId join deptlist de on de.did = d.did
+        join deptlistt dt on d.dTid = dt.dTid
+        where d.dCid = #{dCid}
+    </select>
+
+    <!--批量删除-->
+    <delete id="deleteList" parameterType="java.lang.Integer">
+        delete from doctor
+        <where>
+
+            <if test="array != null and array.length>0">
+                dCid in
+                <foreach collection="array" item="dCid" open="(" separator=","
+                         close=")">
+                    #{dCid}
+                </foreach>
+            </if>
+        </where>
+    </delete>
+    <!--修改编辑-->
+    <update id="update" parameterType="com.dyzzw.pojo.Doctor">
+        update doctor
+        <set>
+            <if test="name != null and name != '' ">
+                name=#{name},
+            </if>
+            <if test="pwd != null and pwd != '' ">
+                pwd=#{pwd},
+            </if>
+            <if test="score != null and score != '' ">
+                score=#{score},
+            </if>
+            <if test="name != null and name != '' ">
+                gender=#{gender},
+            </if>
+            <if test="grade != null and grade != '' ">
+                grade=#{grade},
+            </if>
+            <if test="skill != null and skill != '' ">
+                skill=#{skill},
+            </if>
+            <if test="description != null and description != '' ">
+                description=#{description},
+            </if>
+            <if test="surgeryweek != null and surgeryweek != '' ">
+                surgeryweek=#{surgeryweek},
+            </if>
+
+            <if test="did != null">
+                did =#{did},
+            </if>
+            <if test="dTid != null">
+                dTid =#{dTid},
+            </if>
+            <if test="hId != null">
+                hId =#{hId}
+            </if>
+            <if test="pwd != null and pwd != ''">
+                pwd =#{pwd}
+            </if>
+        </set>
+        where dCid = #{dCid}
+    </update>
+    <!--插入-->
+    <insert id="insert" parameterType="com.dyzzw.pojo.Doctor">
+        insert into doctor values (#{dCid},#{name},#{email},#{pwd},#{gender},#{hId},#{score},
+                                #{grade},#{did},#{dTid},#{rid},#{skill},#{description},#{surgeryweek})
+
+    </insert>
+</mapper>

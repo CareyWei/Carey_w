@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyzzw.mapper.AppointmentMapper">
+    <resultMap id="resultMapAppointMent" type="com.dyzzw.pojo.Appointment">
+        <result column="apId" property="apId"/>
+        <result column="uid" property="uid"/>
+        <result column="appointTime" property="appointTime"/>
+        <result column="dCid" property="dCid"/>
+        <result column="apName" property="apName"/>
+        <result column="idcast" property="idcast"/>
+        <result column="aphone" property="aphone"/>
+        <result column="apAddress" property="apAddress"/>
+        <result column="createTime" property="createTime"/>
+        <result column="updateTime" property="updateTime"/>
+        <association property="doctor" javaType="Doctor">
+            <id column="dCid" property="dCid"/>
+            <result column="name" property="name"/>
+            <result column="email" property="email"/>
+            <result column="pwd" property="pwd"/>
+            <result column="gender" property="gender"/>
+            <result column="hId" property="hId"></result>
+            <result column="score" property="score"/>
+            <result column="grade" property="grade"/>
+            <result column="rid" property="rid"></result>
+            <result column="did" property="did"></result>
+            <result column="dTid" property="dTid"></result>
+            <result column="skill" property="skill"/>
+            <result column="description" property="description"/>
+            <result column="surgeryWeek" property="surgeryweek"/>
+            <association property="deptlist" javaType="Deptlist">
+                <id property="did" column="did"></id>
+                <result column="dname" property="dname"></result>
+            </association>
+            <association property="deptlistT" javaType="DeptlistT">
+                <id property="dTid" column="dTid"></id>
+                <result property="dTname" column="dTname"></result>
+            </association>
+            <association property="hospital" javaType="hospital">
+                <id property="hId" column="hId"></id>
+                <result property="hName" column="hName"></result>
+                <result property="hLevel" column="hLevel"></result>
+                <result property="hPhone" column="hPhone"></result>
+                <result property="hAddress" column="hAddress"></result>
+                <result property="hInformation" column="hInformation"></result>
+                <result property="arId" column="arId"></result>
+            </association>
+        </association>
+
+    </resultMap>
+
+    <!--插入预约表-->
+    <insert id="insert" parameterType="com.dyzzw.pojo.Appointment">
+    insert into appointment (apId, uid, appointTime,dCid, apName, idcast, aphone,apAddress,
+    createTime, updateTime)
+    values (#{apId,jdbcType=BIGINT}, #{uid,jdbcType=BIGINT}, #{appointTime,jdbcType=VARCHAR},
+    #{dCid,jdbcType=BIGINT}, #{apName,jdbcType=VARCHAR}, #{idcast,jdbcType=VARCHAR},
+    #{aphone,jdbcType=VARCHAR},#{apAddress,jdbcType=VARCHAR},
+    #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+    <!--对身份证姓名查重-->
+    <select id="checkAppoint" parameterType="com.dyzzw.pojo.Appointment"  resultMap="resultMapAppointMent">
+        select * from doctor d join appointment a on a.dCid = d.dCid
+        JOIN  hospital_message h on d.hId = h.hId join deptlist de on de.did = d.did
+        join deptlistt dt on d.dTid = dt.dTid
+        <where>
+            <if test="appointTime != null and appointTime != ''">
+                a.appointTime = #{appointTime}
+            </if>
+            <if test="dCid != null">
+                and d.dCid = #{dCid}
+            </if>
+            <if test="idcast != null">
+                and a.idcast = #{idcast}
+            </if>
+        </where>
+
+    </select>
+    <!--查预约-->
+    <select id="checkTime" resultType="Integer">
+        select count(*) from appointment
+        <where>
+            <if test="appointTime != null and appointTime != ''">
+                appointTime = #{appointTime}
+            </if>
+            <if test="dCid != null">
+                and dCid = #{dCid}
+            </if>
+        </where>
+    </select>
+    <!--搜索预约信息-->
+    <select id="AppointMessage" parameterType="com.dyzzw.pojo.Appointment" resultMap="resultMapAppointMent">
+        select * from doctor d join appointment a on a.dCid = d.dCid
+        JOIN  hospital_message h on d.hId = h.hId join deptlist de on de.did = d.did
+        join deptlistt dt on d.dTid = dt.dTid
+        <where>
+            <if test="key != null and key != '' ">
+                a.`apName` LIKE '%${key}%' OR a.apName LIKE '%${key}%'
+            </if>
+            <if test="dCid != null">
+                and a.dCid = #{dCid}
+            </if>
+            <if test="apName != null and apName != ''">
+                a.apName = #{apName}
+            </if>
+        </where>
+    </select>
+    <!--多表查看预约信息-->
+    <select id="checkAppointManage" resultMap="resultMapAppointMent" parameterType="com.dyzzw.pojo.Appointment">
+        select * from doctor d join appointment a on a.dCid = d.dCid
+        join hospital_message h on d.hId = h.hId
+        <where>
+            <if test="apName != null and apName != ''">
+                a.apName = #{apName}
+            </if>
+            <if test="apId != null">
+                and a.apId = #{apId}
+            </if>
+        </where>
+
+    </select>
+    <!--批量删除-->
+    <delete id="deleteAppoint" parameterType="java.lang.Long">
+        delete from appointment
+        <where>
+            <if test="array != null and array.length>0">
+                apId in
+                <foreach collection="array" item="apId" open="(" separator=","
+                         close=")">
+                    #{apId}
+                </foreach>
+            </if>
+        </where>
+    </delete>
+    <!--修改编辑-->
+    <update id="update" parameterType="com.dyzzw.pojo.Appointment">
+        update appointment set appointTime= #{appointTime}
+        where apId=#{apId}
+    </update>
+</mapper>

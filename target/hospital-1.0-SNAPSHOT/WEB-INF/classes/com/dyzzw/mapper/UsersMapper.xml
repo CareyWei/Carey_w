@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		<mapper namespace="com.dyzzw.mapper.UsersMapper" >
+	<resultMap id="adminMenu" type="com.dyzzw.pojo.admin">
+		<result column="aId" property="aId"></result>
+		<result column="name" property="name" ></result>
+		<result column="pwd" property="pwd"></result>
+		<collection property="Menu" column="com.dyzzw.pojo.Menu">
+			<result column="mid" property="mid"></result>
+		</collection>
+	</resultMap>
+	<resultMap id="DoctorMenu" type="com.dyzzw.pojo.Doctor">
+		<id column="dCid" property="dCid" />
+		<result  column="name" property="name"/>
+		<result  column="email" property="email"/>
+		<result  column="pwd" property="pwd"/>
+		<result  column="gender" property="gender"/>
+		<result  column="hId" property="hId"></result>
+		<result  column="score" property="score"/>
+		<result  column="grade" property="grade"/>
+		<result  column="rid" property="rid"></result>
+		<result  column="did" property="did"></result>
+		<result  column="dTid" property="dTid"></result>
+		<result  column="skill" property="skill"/>
+		<result  column="description" property="description"/>
+		<result  column="surgeryWeek" property="surgeryweek"/>
+		<collection property="menuList" column="com.dyzzw.pojo.Menu">
+			<result column="mid" property="mid"></result>
+		</collection>
+	</resultMap>
+	<!--登录-->
+	<select id="login_t"  resultType="tuser">
+		select * from tuser where email=#{email} and pwd= #{pwd}
+	</select>
+	<!--医生管理员登录-->
+	<select id="queryUserByUserName_DO"  resultType="Doctor">
+		select * from doctor where email=#{email}
+	</select>
+	<!--注冊-->
+	<insert id="ins" parameterType="tuser">
+		insert into tuser
+		values(#{uid},#{name},#{pwd},#{phone},#{email},#{createtime},#{updatetime},3,#{state})
+	</insert>
+	<!--查重-->
+    <select id="checkName" parameterType="String" resultType="tuser" >
+		select * from tuser where email=#{email}
+	</select>
+	<!--根据ID找user-->
+	<select id="findUserID" parameterType="java.lang.Long" resultType="tuser" >
+		select * from tuser
+			where	uid =#{uid}
+
+	</select>
+	<!--搜索用户信息-->
+	<select id="UserMessage" parameterType="com.dyzzw.pojo.tuser" resultType="tuser">
+		select * from tuser t
+		<where>
+			<if test="key != null and key != '' ">
+				and  t.`name` LIKE '%${key}%' OR t.name LIKE '%${key}%'
+			</if>
+
+
+		</where>
+	</select>
+	<!--修改个人信息-->
+    <update id="updateInfor" parameterType="com.dyzzw.pojo.tuser">
+        update tuser set name = #{name},phone =#{phone} ,email = #{email}
+         where uid=#{uid}
+    </update>
+
+    <update id="updatePwd" parameterType="com.dyzzw.pojo.tuser">
+        update tuser set pwd = #{pwd}
+         where uid=#{uid}
+    </update>
+
+	<!--批量删除-->
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from tuser
+		<where>
+
+			<if test="array != null and array.length>0">
+				uid in
+				<foreach collection="array" item="uid" open="(" separator=","
+						 close=")">
+					#{uid}
+				</foreach>
+			</if>
+		</where>
+	</delete>
+
+</mapper>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyzzw.mapper.HospitalMapper">
+    <resultMap id="resultMapArea" type="com.dyzzw.pojo.hospital">
+        <id property="hId" column="hId"></id>
+        <result column="hName" property="hName"></result>
+        <result column="hLevel" property="hLevel"></result>
+        <result column="hPhone" property="hPhone"></result>
+        <result column="hAddress" property="hAddress"></result>
+        <result column="hInformation" property="hInformation"></result>
+        <result column="arId" property="arId"></result>
+        <association property="Area" javaType="Area">
+            <id column="arId" property="arId"></id>
+            <result column="arname" property="arname"></result>
+        </association>
+
+    </resultMap>
+    <!--科室-->
+    <resultMap id="checkdeptlist" type="com.dyzzw.pojo.Deptlist">
+        <id property="did" column="did"></id>
+        <result column="dname" property="dname"></result>
+        <collection property="deptlistT" ofType="deptlistT">
+            <id property="dTid" column="dTid"></id>
+            <result property="dTname" column="dTname"></result>
+            <result property="did" column="did"></result>
+        </collection>
+    </resultMap>
+    <resultMap id="CheckDept" type="com.dyzzw.pojo.DeptlistT">
+        <id property="dTid" column="dTid"></id>
+        <result property="dTname" column="dTname"></result>
+        <result property="did" column="did"></result>
+        <association property="deptlist" javaType="Deptlist">
+            <id property="did" column="did"></id>
+            <result column="dname" property="dname"></result>
+        </association>
+    </resultMap>
+     <!-- 查询地区-->
+    <select id="checkArea" resultType="area">
+            select * from area
+        </select>
+    <select id="getAreaTById" resultType="area" parameterType="String">
+    select * from area where arname=#{arname}
+ </select>
+    <!--查询医院-->
+    <select id="checkHos" resultType="hospital">
+            select * from hospital_message
+
+    </select>
+    <select id="getHospitalByName" parameterType="String" resultType="hospital">
+            select * from hospital_message where hName = #{hName}
+    </select>
+    <select id="getHospitalById" resultType="hospital" parameterType="Integer">
+            select * from hospital_message where hId = #{hId}
+    </select>
+    <!--多表联合查询医院地区-->
+    <select id="checkAreaT" parameterType="com.dyzzw.dto.HospitalPage" resultMap="resultMapArea">
+        select * from area a join hospital_message h on a.arId = h.arId
+        <where>
+
+            <if test="key != null and key != '' ">
+                and  a.`arname` LIKE '%${key}%' OR h.hName LIKE '%${key}%'
+            </if>
+
+            <if test="arId != null ">
+                h.arId = #{arId}
+            </if>
+
+            <if test="hLevel != null ">
+                and h.hLevel = #{hLevel}
+            </if>
+            <if test="hLevel != null ">
+                and h.hId = #{hId}
+            </if>
+        </where>
+        limit #{pageNum},#{pageSize}
+    </select>
+    <!--计算医院总数-->
+    <select id="selectToPageTotalCount" parameterType="com.dyzzw.dto.HospitalPage" resultType="Integer">
+        select count(*) from area a join hospital_message h on a.arId = h.arId
+        <where>
+            <if test="arId != null ">
+                h.arId = #{arId}
+            </if>
+            <if test="hId != null ">
+                and h.hId = #{hId}
+            </if>
+
+        </where>
+    </select>
+
+
+    <!--批量删除-->
+    <delete id="deletelist" parameterType="java.lang.Integer">
+        delete from hospital_message
+        <where>
+
+            <if test="array != null and array.length>0">
+                hId in
+                <foreach collection="array" item="hId" open="(" separator=","
+                         close=")">
+                    #{hId}
+                </foreach>
+            </if>
+        </where>
+    </delete>
+    <!--修改编辑医院-->
+    <update id="update" parameterType="com.dyzzw.pojo.hospital" >
+        update hospital_message
+        <set>
+            <if test="hName != null || hName !='' ">
+                hName=#{hName},
+            </if>
+            <if test="hLevel != null || hLevel !='' ">
+                hLevel=#{hLevel},
+            </if>
+            <if test="hPhone != null || hPhone !='' ">
+                hPhone=#{hPhone},
+            </if>
+            <if test="hAddress != null || hAddress !='' ">
+                hAddress=#{hAddress},
+            </if>
+            <if test="hInformation != null || hInformation !='' ">
+                hInformation=#{hInformation},
+            </if>
+            <if test="arId != null || arId !='' ">
+                arId=#{arId}
+            </if>
+
+        </set>
+        where hId=#{hId}
+    </update>
+
+    <!--增加医院-->
+    <insert id="insert" parameterType="com.dyzzw.pojo.hospital">
+        insert into hospital_message values
+         (#{hId},#{hName},#{hLevel},#{hPhone},#{hAddress},#{hInformation},#{arId})
+    </insert>
+
+    <!--分页查询-->
+    <select id="CheckPage" parameterType="com.dyzzw.pojo.Deptlist" resultMap="checkdeptlist">
+        select * from deptlist
+        <where>
+
+            <if test="key != null and key != '' ">
+                 dname LIKE '%${key}%'
+            </if>
+
+        </where>
+    </select>
+    <!--查询部门-->
+    <select id="checkdept" parameterType="com.dyzzw.pojo.Deptlist" resultMap="checkdeptlist">
+        select * from deptlistT d2 join deptlist d1 on d1.did = d2.did
+        <where>
+            <if test="dname != null ">
+                d1.dname = #{dname}
+            </if>
+
+        </where>
+    </select>
+    <!--搜索查询部门-->
+    <select id="checkdeptT" parameterType="com.dyzzw.pojo.DeptlistT" resultMap="CheckDept">
+        select * from deptlistt d2 join deptlist d1 on d1.did = d2.did
+        <where>
+            <if test="dTname != null ">
+                d2.dTname = #{dTname}
+            </if>
+            <if test="key != null and key != '' ">
+                and  d1.`dname` LIKE '%${key}%' OR d2.dTname LIKE '%${key}%'
+            </if>
+
+        </where>
+    </select>
+    <select id="checkDEPT"  resultMap="checkdeptlist">
+        select * from deptlist
+        <where>
+            dname = #{dname}
+            <if test="did != null ">
+                and   did = #{did}
+            </if>
+        </where>
+
+
+    </select>
+    <select id="checkDEPTT"  resultMap="CheckDept">
+        select * from deptlistt
+        <where>
+            dTname = #{dTname}
+            <if test="dTid != null ">
+                and   dTid = #{dTid}
+            </if>
+        </where>
+    </select>
+    <!--二级联动-->
+    <select id="AjaxHos" parameterType="com.dyzzw.pojo.hospital" resultMap="resultMapArea">
+        select * from area a join hospital_message h on a.arId = h.arId
+        <where>
+            a.arname=#{arname}
+        </where>
+
+    </select>
+    <select id="AjaxDept" parameterType="com.dyzzw.pojo.Deptlist" resultMap="checkdeptlist">
+        select * from deptlistT d2 join deptlist d1 on d1.did = d2.did
+        <where>
+            d1.dname=#{dname}
+        </where>
+    </select>
+    <!--批量删除部门-->
+    <delete id="deleteDept" parameterType="java.lang.Integer">
+        delete from deptlist
+        <where>
+
+            <if test="array != null and array.length>0">
+                did in
+                <foreach collection="array" item="did" open="(" separator=","
+                         close=")">
+                    #{did}
+                </foreach>
+            </if>
+        </where>
+
+    </delete>
+    <!--批量删除科室-->
+    <delete id="deleteTDept" parameterType="java.lang.Integer">
+        delete from deptlistt
+        <where>
+
+            <if test="array != null and array.length>0">
+                dTid in
+                <foreach collection="array" item="dTid" open="(" separator=","
+                         close=")">
+                    #{dTid}
+                </foreach>
+            </if>
+        </where>
+
+    </delete>
+    <!--修改编辑-->
+    <update id="updatedT">
+        update deptlistt set dTname =#{dTname} ,did=#{did}
+        where dTid =#{dTid}
+    </update>
+    <!--修改编辑-->
+    <update id="updateDt">
+        update deptlist set dname =#{dname}
+        where did=#{did}
+    </update>
+    <!--新增科室-->
+    <insert id="insertDT" >
+        insert into deptlistt values (#{dTid},#{dTname},#{did})
+    </insert>
+    <!--新增部门-->
+    <insert id="insertDt" >
+        insert into deptlist values (#{did},#{dname})
+    </insert>
+</mapper>

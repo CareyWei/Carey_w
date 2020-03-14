@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <context:annotation-config />
+    <context:component-scan base-package="com.dyzzw.service.impl">
+    </context:component-scan>
+    <bean id="ScheduleService" class="com.dyzzw.service.impl.ScheduleServiceImpl" ></bean>
+
+    <!--2.配置jobDetal ： 配置需要定时执行的类和方法-->
+
+    <bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" >
+            <ref bean="ScheduleService"/>
+        </property>
+        <property name="targetMethod">
+            <value>UpdateAppoint</value>
+        </property>
+    </bean>
+
+    <!--3.配置trigger（触发器）: 配置时间以及jobdetal关系 -->
+    <bean id="trigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="jobDetail"></property>
+        <!--cron表达式-->
+        <property name="cronExpression" value="0 0 0 1/1 * ?"></property>
+    </bean>
+
+    <!--4.配置定时任务管理器: 触发器有可能会有多个，需要统一管理-->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="trigger"></ref>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>

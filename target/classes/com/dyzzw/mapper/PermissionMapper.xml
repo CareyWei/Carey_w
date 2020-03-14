@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyzzw.mapper.PermissionMapper">
+	<resultMap id="BaseResultMap" type="com.dyzzw.pojo.Permission">
+		<id column="mid" property="mid" />
+		<result column="Mname"  property="Mname" />
+		<result column="parent_id"  property="parent_id" />
+		<result column="url" property="url" />
+		<result column="level"  property="level" />
+		<result column="type" property="type" />
+		<result column="percode"  property="percode" />
+		<collection property="child" select="queryPermssionByUserId"
+					 column="{dCid=dCid,parent_id=mid}" ></collection>
+	</resultMap>
+
+	<!-- 根据用户ID查询权限 -->
+	<select id="queryPermssionByUserId" resultMap="BaseResultMap" >
+        select t1.*,#{dCid} dCid from Permission t1 inner join role_Permission t2 inner join
+        user_role t3
+        on(t1.mid=t2.mid and t2.rid=t3.rid) where t3.dCid=#{dCid} and t1.parent_id =#{parent_id}
+    </select>
+
+</mapper>

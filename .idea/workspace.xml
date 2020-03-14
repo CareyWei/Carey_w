@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Hospital:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d12891d5-69f8-4088-9c0b-b3370ded4917" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="jsf" />
+        <option value="FxmlFile" />
+        <option value="Jsp File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" value="" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:/Program Files/Java/apache-maven-3.6.2" />
+        <option name="userSettingsFile" value="C:\Program Files\Java\apache-maven-3.6.2\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1T45gNqWYuF3eOjPaSfBaJfIgjV" />
+  <component name="PropertiesComponent">
+    <property name="ToolWindowMessages.ShowToolbar" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.14648438" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="spring" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Language\java JPK\javaEE\ideaProject\Hospital\src\main\webapp\admin\page" />
+      <recent name="D:\Language\java JPK\javaEE\ideaProject\Hospital\src\main\webapp" />
+      <recent name="D:\Language\java JPK\javaEE\ideaProject\Hospital\src\main\webapp\page" />
+      <recent name="D:\Language\java JPK\javaEE\ideaProject\Hospital\src\main\webapp\WEB-INF" />
+      <recent name="D:\Language\java JPK\javaEE\ideaProject\Hospital\target\test-classes" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.dyzzw.service.impl" />
+      <recent name="com.dyzzw.service" />
+      <recent name="com.dyzzw.mapper" />
+      <recent name="com.dyzzw.util" />
+      <recent name="com.dyzzw.pojo" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Language\java JPK\javaEE\ideaProject\Hospital\src\main\webapp" />
+      <recent name="D:\Language\java JPK\javaEE\ideaProject\Hospital\src\main\resources\com\dyzzw\spring" />
+      <recent name="D:\Language\java JPK\javaEE\ideaProject\Hospital\src\main\webapp\admin\page" />
+      <recent name="D:\Language\java JPK\javaEE\ideaProject\Hospital\src\main\webapp\images" />
+      <recent name="D:\Language\java JPK\javaEE\ideaProject\Hospital\src\main\webapp\admin\images" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat 7.0.56">
+    <configuration name="Itemtest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="Hospital" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dyzzw.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.dyzzw.test" />
+      <option name="MAIN_CLASS_NAME" value="com.dyzzw.test.Itemtest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Itemtest.test" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="Hospital" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dyzzw.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.dyzzw.test" />
+      <option name="MAIN_CLASS_NAME" value="com.dyzzw.test.Itemtest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 7.0.56" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.56" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8888/hospital/" />
+      <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <deployment>
+        <artifact name="Hospital:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_7_0_56_Hospital_3" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="3503" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Hospital:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.56" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8888/Hospital_war/" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Hospital:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/Hospital_war" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_Hospital" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="3503" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Hospital:war exploded" />
+          <artifact name="Hospital:war" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.Itemtest.test" />
+      <item itemvalue="JUnit.Itemtest" />
+      <item itemvalue="Tomcat Server.Tomcat 7.0.56" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d12891d5-69f8-4088-9c0b-b3370ded4917" name="Default Changelist" comment="" />
+      <created>1572706637147</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572706637147</updated>
+      <workItem from="1572706638826" duration="4365000" />
+      <workItem from="1572711125135" duration="680000" />
+      <workItem from="1572755203817" duration="7095000" />
+      <workItem from="1572768765726" duration="10096000" />
+      <workItem from="1572838394866" duration="6508000" />
+      <workItem from="1572852613991" duration="17723000" />
+      <workItem from="1572872010421" duration="40000" />
+      <workItem from="1572878174163" duration="4151000" />
+      <workItem from="1572926655871" duration="20024000" />
+      <workItem from="1572955961559" duration="6956000" />
+      <workItem from="1573017341593" duration="20096000" />
+      <workItem from="1573037691053" duration="13289000" />
+      <workItem from="1573100838131" duration="2836000" />
+      <workItem from="1573130576646" duration="1611000" />
+      <workItem from="1573303741662" duration="1128000" />
+      <workItem from="1573362773533" duration="9432000" />
+      <workItem from="1573444483400" duration="24810000" />
+      <workItem from="1573533124435" duration="7491000" />
+      <workItem from="1573553821113" duration="5092000" />
+      <workItem from="1573558967520" duration="8599000" />
+      <workItem from="1573618004526" duration="1394000" />
+      <workItem from="1573620179069" duration="1920000" />
+      <workItem from="1573622168496" duration="3062000" />
+      <workItem from="1573630702365" duration="6938000" />
+      <workItem from="1573646723508" duration="5323000" />
+      <workItem from="1574052754821" duration="595000" />
+      <workItem from="1574053847595" duration="3299000" />
+      <workItem from="1574063820927" duration="14410000" />
+      <workItem from="1574156536919" duration="11227000" />
+      <workItem from="1574170865302" duration="1965000" />
+      <workItem from="1574233656011" duration="11629000" />
+      <workItem from="1574252797088" duration="7620000" />
+      <workItem from="1574263532931" duration="165000" />
+      <workItem from="1574339189112" duration="7430000" />
+      <workItem from="1574347278275" duration="1786000" />
+      <workItem from="1574485243026" duration="697000" />
+      <workItem from="1574485970170" duration="211000" />
+      <workItem from="1574486212565" duration="322000" />
+      <workItem from="1574486560164" duration="2407000" />
+      <workItem from="1574503549797" duration="11377000" />
+      <workItem from="1574562325169" duration="19453000" />
+      <workItem from="1574598534682" duration="6857000" />
+      <workItem from="1574652250892" duration="4218000" />
+      <workItem from="1574657883101" duration="629000" />
+      <workItem from="1574658696223" duration="11817000" />
+      <workItem from="1574735596996" duration="18995000" />
+      <workItem from="1574757834623" duration="76000" />
+      <workItem from="1574757962141" duration="13890000" />
+      <workItem from="1574818069993" duration="16415000" />
+      <workItem from="1574943390794" duration="7830000" />
+      <workItem from="1575024877989" duration="10951000" />
+      <workItem from="1575083742954" duration="31614000" />
+      <workItem from="1575182472775" duration="22441000" />
+      <workItem from="1575256643657" duration="13945000" />
+      <workItem from="1575293752164" duration="3512000" />
+      <workItem from="1575347601316" duration="17819000" />
+      <workItem from="1575371122171" duration="9125000" />
+      <workItem from="1575426931393" duration="29576000" />
+      <workItem from="1575544187151" duration="12522000" />
+      <workItem from="1575807434616" duration="1095000" />
+      <workItem from="1575857130752" duration="716000" />
+      <workItem from="1575858586325" duration="27390000" />
+      <workItem from="1575943344055" duration="4395000" />
+      <workItem from="1576029680439" duration="10631000" />
+      <workItem from="1576409242811" duration="2361000" />
+      <workItem from="1576462940656" duration="2190000" />
+      <workItem from="1576473078410" duration="287000" />
+      <workItem from="1576477036472" duration="18165000" />
+      <workItem from="1576557499328" duration="8578000" />
+      <workItem from="1576591890539" duration="4267000" />
+      <workItem from="1576668069008" duration="8785000" />
+      <workItem from="1577081620454" duration="1415000" />
+      <workItem from="1577169751636" duration="2213000" />
+      <workItem from="1577871541282" duration="14643000" />
+      <workItem from="1577935529121" duration="34654000" />
+      <workItem from="1577978219621" duration="1180000" />
+      <workItem from="1578036332123" duration="34455000" />
+      <workItem from="1578114241926" duration="37743000" />
+      <workItem from="1578195401358" duration="38047000" />
+      <workItem from="1578279540750" duration="2096000" />
+      <workItem from="1578282071742" duration="32535000" />
+      <workItem from="1578326868304" duration="132000" />
+      <workItem from="1578373896526" duration="18993000" />
+      <workItem from="1578578621722" duration="645000" />
+      <workItem from="1578660190370" duration="1462000" />
+      <workItem from="1578987785032" duration="915000" />
+      <workItem from="1579089801439" duration="2024000" />
+      <workItem from="1579155217751" duration="81000" />
+      <workItem from="1579157672615" duration="620000" />
+      <workItem from="1579253305002" duration="404000" />
+      <workItem from="1582524633852" duration="7318000" />
+      <workItem from="1582545883283" duration="9203000" />
+      <workItem from="1582555394268" duration="1970000" />
+      <workItem from="1582621652571" duration="20094000" />
+      <workItem from="1582707649796" duration="19132000" />
+      <workItem from="1583917577456" duration="9610000" />
+      <workItem from="1583930405902" duration="19605000" />
+      <workItem from="1584012469854" duration="6359000" />
+      <workItem from="1584018898483" duration="754000" />
+      <workItem from="1584186506367" duration="1759000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ini" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/main/webapp/js/auth.js</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
