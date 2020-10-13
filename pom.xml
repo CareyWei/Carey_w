@@ -22,7 +22,7 @@
     <mysql-connector-java-version>8.0.18</mysql-connector-java-version>
     <jackson-version>2.9.10.3</jackson-version>
     <commons-fileupload-version>1.4</commons-fileupload-version>
-    <junit-verson>4.12</junit-verson>
+    <junit-verson>4.13.1</junit-verson>
     <ta-version>1.1.2</ta-version>
     <email-verson>1.5</email-verson>
     <act-verson>1.1.1</act-verson>
